@@ -1,11 +1,10 @@
+use crate::{message_payload::MessagePayload, scoreboard::ScoreBoard};
 use actix::clock::sleep;
 use actix::{
     fut::ready, prelude::ContextFutureSpawner, Actor, ActorFutureExt, Addr, Context, WrapFuture,
 };
 use rand::random;
 use std::time::Duration;
-
-use crate::{message_payload::MessagePayload, scoreboard::ScoreBoard};
 
 #[derive(Clone)]
 pub struct RandomGenerator {

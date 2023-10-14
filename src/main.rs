@@ -7,22 +7,8 @@ use actix::Actor;
 use participant::Participant;
 use random_generator::RandomGenerator;
 use scoreboard::ScoreBoard;
+use tokio::time::{sleep, Duration};
 
-// #[actix::main]
-// async fn main() {
-//     let scoreboard = ScoreBoard {
-//         id: 1,
-//         participants: vec![
-//             Participant::new("Alice"),
-//             Participant::new("Bob"),
-//             Participant::new("Charlie"),
-//         ],
-//     };
-//     let addr = scoreboard.start();
-
-//     let random_gen = RandomGenerator { id: 1, observer: addr.clone() };
-//     let _rand_addr = random_gen.start();
-// }
 #[actix::main]
 async fn main() {
     let scoreboard = ScoreBoard {
@@ -45,6 +31,6 @@ async fn main() {
 
     // Prevent the program from exiting immediately
     loop {
-        tokio::time::sleep(tokio::time::Duration::from_secs(1)).await;
+        sleep(Duration::from_secs(1)).await;
     }
 }
